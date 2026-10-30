@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.11" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README-acmphs</title>
+  <style>
+
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+  <style type="text/css">:root {
+--brand: #2b0a8c;
+--accent: #e6007e;
+--ink: #1f2430;
+--muted: #667085;
+--line: #e4e7ec;
+--surface: #f7f7fb;
+}
+* {
+box-sizing: border-box;
+}
+html {
+scroll-behavior: smooth;
+}
+body {
+margin: 0 auto;
+max-width: 1120px;
+padding: 50px;
+color: var(--ink);
+background: #ffffff;
+font-family: "Segoe UI", Arial, sans-serif;
+line-height: 1.65;
+}
+a {
+color: var(--brand);
+}
+a:hover {
+color: var(--accent);
+}
+h1 {
+margin-top: 2.7rem;
+padding-bottom: 0.35rem;
+border-bottom: 2px solid var(--line);
+}
+h2 {
+margin-top: 2.4rem;
+padding-bottom: 0.3rem;
+border-bottom: 1px solid var(--line);
+}
+h3,
+h4,
+h5,
+h6 {
+margin-top: 2rem;
+}
+img {
+display: block;
+max-width: 100%;
+height: auto;
+margin: 1rem auto 0.35rem;
+}
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 1.25rem 0;
+}
+th,
+td {
+border: 1px solid var(--line);
+padding: 0.7rem;
+vertical-align: top;
+}
+th {
+background: var(--surface);
+text-align: left;
+}
+blockquote {
+margin: 1.2rem 0;
+padding: 0.7rem 1rem;
+border-left: 4px solid var(--brand);
+background: var(--surface);
+}
+code {
+font-family: Consolas, "Courier New", monospace;
+}
+pre {
+overflow-x: auto;
+padding: 1rem;
+border-radius: 8px;
+background: var(--surface);
+}
+
+body > h1:first-of-type {
+margin: -50px calc(50% - 50vw) 3rem;
+padding: 3.5rem max(50px, calc((100vw - 1120px) / 2));
+border: 0;
+background: linear-gradient(135deg, #250777, #3e16a3);
+color: #ffffff;
+font-size: clamp(2rem, 5vw, 3.5rem);
+line-height: 1.1;
+}
+@media (max-width: 640px) {
+body {
+padding: 20px;
+}
+body > h1:first-of-type {
+margin-top: -20px;
+padding: 2.5rem 20px;
+}
+}
+</style>
+</head>
+<body>
+<h1 id="acmphs-voltage-comparator">ACMPHS (Voltage Comparator)</h1>
+<h2 id="overview">Overview</h2>
+<p>This Software Building Block (SBB), referred to in the source as the
+ACMPHS Example Project, demonstrates use of the Renesas Flexible
+Software Package (FSP) high-speed analog comparator (ACMPHS) APIs on the
+FPB-RA8E1. The reference application uses the ACMPHS internal reference
+voltage as the comparison reference and DAC0 to generate the analog
+signal presented to AN000. The comparator result is reported over the
+console and reflected on the on-board LED.</p>
+<p>On FPB-RA8E1, the internal reference voltage is configured to
+<strong>1.18 V</strong> (described by the original example as equivalent
+to digital value <strong>1465</strong>). DAC0 provides the variable
+input. When the input voltage is above the reference, the comparator
+output is HIGH and the LED is turned ON. When it is below the reference,
+the comparator output is LOW and the LED is turned OFF.</p>
+<h2 id="what-use-case-does-this-sbb-demonstrate">What use case does this
+SBB demonstrate?</h2>
+<p>The SBB demonstrates a basic threshold-detection use case using the
+FPB-RA8E1 high-speed analog comparator:</p>
+<ol type="1">
+<li>Initialize DAC0 and the ACMPHS peripheral.</li>
+<li>Use DAC0 to generate a controllable analog voltage.</li>
+<li>Route DAC0 output externally to the ACMPHS AN000 input.</li>
+<li>Compare AN000 against the ACMPHS internal 1.18 V reference.</li>
+<li>Read the comparator state after its required stabilization
+interval.</li>
+<li>Report the result through the UART-backed standard I/O console.</li>
+<li>Drive the FPB-RA8E1 on-board LED according to the comparator
+output.</li>
+</ol>
+<p>This provides a concrete reference for applications that need to
+detect whether an analog signal is above or below a configured
+threshold.</p>
+<h2 id="hardware-setup">Hardware setup</h2>
+<h3 id="required-hardware">Required hardware</h3>
+<ul>
+<li>1 x FPB-RA8E1 board</li>
+<li>1 x USB cable for programming and debugging</li>
+<li>1 x jumper wire</li>
+</ul>
+<h3 id="fpb-ra8e1-connection">FPB-RA8E1 connection</h3>
+<p>Connect:</p>
+<ul>
+<li><strong>DA0 P014 (J1:34)</strong> to <strong>IVCMP0_2 / AN000 P004
+(J1:20)</strong></li>
+</ul>
+<p>This connection routes the DAC0 output to the comparator analog input
+used by the reference application.</p>
+<h2 id="demonstrated-operation">Demonstrated operation</h2>
+<p>The reference application prompts for a DAC0 value in either of these
+ranges:</p>
+<ul>
+<li><code>0</code> to <code>1400</code></li>
+<li><code>1600</code> to <code>4095</code></li>
+</ul>
+<p>Values strictly between <code>1400</code> and <code>1600</code> are
+treated as a fluctuating-voltage range and are not used for the
+comparison operation. The example identifies this exclusion as a way to
+avoid comparator-output changes caused by electrical noise near the
+reference threshold.</p>
+<p>For an accepted DAC value, the application:</p>
+<ol type="1">
+<li>Writes the value to DAC0.</li>
+<li>Calculates and displays its nominal voltage using a <strong>3.3
+V</strong> scale and a 12-bit DAC range.</li>
+<li>Waits for the minimum ACMPHS stabilization time reported by the
+driver.</li>
+<li>Refreshes the comparator status.</li>
+<li>Prints whether the comparator output is HIGH or LOW.</li>
+<li>Updates the on-board LED.</li>
+</ol>
+<p>The example accepts a maximum terminal input buffer of 16 bytes, and
+the original instructions state that user-entered data should not exceed
+15 bytes. Operation is not guaranteed for non-integer terminal
+input.</p>
+<h2 id="sbb-core-code">SBB core code</h2>
+<p>The reusable SBB layer is implemented by <code>acmphs_ep.c</code> and
+<code>acmphs_ep.h</code>. It wraps the FSP DAC, ACMPHS, and I/O
+operations needed by the example instead of placing those driver calls
+directly in the application loop.</p>
+<p>For FPB-RA8E1, the core provides:</p>
+<ul>
+<li>DAC0 initialization, initial write, and start.</li>
+<li>Subsequent DAC0 writes.</li>
+<li>ACMPHS open, information retrieval, and output enable.</li>
+<li>Comparator status refresh.</li>
+<li>On-board LED update from comparator state.</li>
+<li>Peripheral cleanup.</li>
+<li>An ACMPHS callback that marks comparator status for refresh when
+channel 0 generates a callback.</li>
+</ul>
+<p>The core also contains compile-time abstraction macros that map its
+DAC and comparator operations onto the applicable FSP driver
+implementation.</p>
+<h2 id="demoreference-application-versus-reusable-sbb-code">Demo/reference
+application versus reusable SBB code</h2>
+<h3 id="reusable-sbb-code">Reusable SBB code</h3>
+<p><code>acmphs_ep.c</code> and <code>acmphs_ep.h</code> contain the
+SBB-facing peripheral functions and abstractions. These are the files to
+study first when reusing the comparator behavior in another
+application.</p>
+<h3 id="demoreference-application-code">Demo/reference application
+code</h3>
+<p><code>acmphs_example_app.c</code> and
+<code>acmphs_example_app.h</code> implement the interactive
+demonstration. This layer is responsible for:</p>
+<ul>
+<li>Initializing the UART console.</li>
+<li>Printing version and example information.</li>
+<li>Prompting for DAC values.</li>
+<li>Parsing terminal input.</li>
+<li>Enforcing the demo’s DAC-value ranges.</li>
+<li>Printing the calculated DAC voltage and comparator state.</li>
+<li>Waiting for the comparator stabilization time before checking
+status.</li>
+<li>Handling errors for the demonstration.</li>
+<li>Running the demonstration continuously.</li>
+</ul>
+<p>The application exposes one entry point,
+<code>acmphs_example_app_run()</code>, which is intended to be called by
+<code>hal_entry.c</code>.</p>
+<p>The console UI, continuous input loop, printed banner, and
+demonstration-specific input handling are reference-application behavior
+rather than the comparator SBB interface itself.</p>
+<h2 id="public-functions-to-look-at-first">Public functions to look at
+first</h2>
+<h3 id="acmphs_ep_comparator_init"><code>acmphs_ep_comparator_init()</code></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>fsp_err_t acmphs_ep_comparator_init<span class="op">(</span>comparator_info_t <span class="op">*</span> p_stabilize_time<span class="op">);</span></span></code></pre></div>
+<p>Opens the configured ACMPHS instance, retrieves comparator
+information including the minimum stabilization wait time, and enables
+comparator output.</p>
+<h3 id="acmphs_ep_status_refresh"><code>acmphs_ep_status_refresh()</code></h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fsp_err_t acmphs_ep_status_refresh<span class="op">(</span>comparator_status_t <span class="op">*</span> p_status<span class="op">);</span></span></code></pre></div>
+<p>Obtains the comparator status when the internal comparator-state flag
+indicates that status should be refreshed. After a successful read, the
+function clears the flag.</p>
+<h3 id="acmphs_ep_dac0_init"><code>acmphs_ep_dac0_init()</code></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fsp_err_t acmphs_ep_dac0_init<span class="op">(</span><span class="dt">uint16_t</span> initial_val<span class="op">);</span></span></code></pre></div>
+<p>Opens DAC0, writes the initial value, and starts conversion. The
+FPB-RA8E1 reference application initializes DAC0 to zero before enabling
+normal interactive operation.</p>
+<h3 id="acmphs_ep_dac0_write"><code>acmphs_ep_dac0_write()</code></h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fsp_err_t acmphs_ep_dac0_write<span class="op">(</span><span class="dt">uint16_t</span> dac_val<span class="op">);</span></span></code></pre></div>
+<p>Writes a new DAC0 value. On FPB-RA8E1, DAC0 supplies the analog
+signal routed to AN000.</p>
+<h3 id="acmphs_ep_led_update"><code>acmphs_ep_led_update()</code></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fsp_err_t acmphs_ep_led_update<span class="op">(</span>comparator_state_t state<span class="op">);</span></span></code></pre></div>
+<p>Writes the board LED according to the comparator output state. For
+FPB-RA8E1, <code>LED_PIN</code> is configured as
+<code>BSP_IO_PORT_04_PIN_08</code>.</p>
+<h3 id="acmphs_ep_close"><code>acmphs_ep_close()</code></h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> acmphs_ep_close<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<p>Closes DAC0 if it is open and closes the ACMPHS instance if it is
+open.</p>
+<h3 id="acmphs_user_callback"><code>acmphs_user_callback()</code></h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> acmphs_user_callback<span class="op">(</span>comparator_callback_args_t <span class="op">*</span> p_args<span class="op">);</span></span></code></pre></div>
+<p>ACMPHS callback. For comparator channel 0 it sets the internal state
+flag so that the status can subsequently be refreshed.</p>
+<h2 id="fpb-ra8e1-reference-configuration-assumptions">FPB-RA8E1
+reference configuration assumptions</h2>
+<p>The supplied implementation makes the following explicit FPB-RA8E1
+assumptions:</p>
+<ul>
+<li>The target is selected with <code>BOARD_RA8E1_FPB</code>.</li>
+<li>The ACMPHS internal reference voltage is <strong>1.18
+V</strong>.</li>
+<li>Comparator input is <strong>AN000 / IVCMP0_2 on P004</strong>.</li>
+<li>DAC0 output is <strong>DA0 on P014</strong>.</li>
+<li>P014 is externally jumpered to P004.</li>
+<li>DAC0 is used as the controllable analog input source.</li>
+<li>The DAC is treated as 12-bit with maximum value
+<code>4095</code>.</li>
+<li>The application uses <code>3.3f</code> as <code>V_REF</code> when
+converting the DAC value to a displayed voltage.</li>
+<li>Values between <code>1400</code> and <code>1600</code> are excluded
+by the reference application to avoid the stated noise-sensitive
+region.</li>
+<li>The LED is <code>BSP_IO_PORT_04_PIN_08</code>.</li>
+<li>Comparator control/configuration objects are
+<code>g_comparator_ctrl</code> and <code>g_comparator_cfg</code>.</li>
+<li>The application waits for <code>min_stabilization_wait_us</code>
+returned by the comparator driver before checking status.</li>
+<li>Application printing and input use standard I/O through the UART
+console.</li>
+</ul>
+<h2 id="what-must-change-when-porting-to-another-board-or-application">What
+must change when porting to another board or application?</h2>
+<p>The supplied files establish the FPB-RA8E1 reference implementation,
+but they do not specify a complete generic board-porting procedure. When
+adapting this SBB, review every application-specific assumption rather
+than copying the FPB-RA8E1 settings unchanged.</p>
+<h3 id="pins-and-analog-routing">Pins and analog routing</h3>
+<p>The FPB-RA8E1 reference depends on P014/DA0 being connected to
+P004/AN000. A different hardware design must provide an appropriate
+analog source and comparator input routing. The LED pin must also match
+the target hardware if <code>acmphs_ep_led_update()</code> is
+retained.</p>
+<h3 id="comparator-configuration">Comparator configuration</h3>
+<p>The SBB uses the generated <code>g_comparator_ctrl</code> and
+<code>g_comparator_cfg</code> objects. The target project’s generated
+FSP configuration must therefore describe the comparator instance,
+reference/input selection, callback, and associated pin configuration
+required by that hardware design.</p>
+<h3 id="dac-configuration">DAC configuration</h3>
+<p>The FPB-RA8E1 demonstration relies on DAC0. If the target design uses
+a different analog source, the DAC-dependent demonstration code and
+configuration must be adapted accordingly. If DAC0 remains the source,
+the target project must supply the appropriate generated DAC
+control/configuration objects expected by the abstraction macros.</p>
+<h3 id="voltage-and-threshold-assumptions">Voltage and threshold
+assumptions</h3>
+<p>Do not carry the FPB-RA8E1 values <code>V_REF = 3.3f</code>, the 1.18
+V comparator reference, or the demo’s excluded <code>1400..1600</code>
+region into another hardware design without validating them against that
+board and its FSP/peripheral configuration.</p>
+<h3 id="timing">Timing</h3>
+<p>The application does not hard-code a comparator stabilization delay.
+It calls <code>InfoGet</code>, retains the driver’s
+<code>min_stabilization_wait_us</code>, and uses that returned value
+before reading comparator status. Preserve that relationship if the
+comparison sequence is reused.</p>
+<h3 id="memory-and-task-priorities">Memory and task priorities</h3>
+<p>The supplied files do <strong>not</strong> define memory sizing
+requirements or RTOS task-priority requirements for this SBB. The
+reference application shown here is a continuous foreground loop. Any
+memory or task-priority changes required by a larger application must be
+determined in that application’s integration context.</p>
+<h3 id="consolemiddleware-setup">Console/middleware setup</h3>
+<p>The demo calls <code>uart_console_init()</code>, uses
+<code>printf()</code>/<code>fgets()</code> for interaction, and calls
+<code>uart_console_flush()</code> during error handling. If the reusable
+comparator code is integrated without the demo application, this console
+behavior is not inherently required by the SBB core.</p>
+<h2 id="dependencies">Dependencies</h2>
+<p>From the supplied source, the SBB/reference application depends on
+the following interfaces and resources:</p>
+<h3 id="renesas-fsp--bsp">Renesas FSP / BSP</h3>
+<ul>
+<li>ACMPHS HAL driver, selected through the source abstraction as
+<code>r_acmphs</code> or <code>r_acmphs_b</code> according to BSP
+feature macros.</li>
+<li>DAC HAL driver, selected as <code>r_dac</code> or
+<code>r_dac_b</code> according to BSP feature macros.</li>
+<li>IOPORT through <code>R_IOPORT_PinWrite()</code> for the on-board
+LED.</li>
+<li>BSP software delay through <code>R_BSP_SoftwareDelay()</code>.</li>
+<li>FSP version API through <code>R_FSP_VersionGet()</code> in the
+reference application.</li>
+<li>Generated HAL declarations made available through
+<code>hal_data.h</code>.</li>
+</ul>
+<h3 id="applicationconsole">Application/console</h3>
+<ul>
+<li><code>console/uart_console.h</code></li>
+<li>C standard I/O/string/conversion functions used by the demo
+(<code>printf</code>, <code>snprintf</code>, <code>fgets</code>,
+<code>atoi</code>, <code>memset</code>, <code>strcspn</code>).</li>
+</ul>
+<h3 id="hardware-resources-on-fpb-ra8e1">Hardware resources on
+FPB-RA8E1</h3>
+<ul>
+<li>ACMPHS channel 0</li>
+<li>DAC0</li>
+<li>AN000 / P004 comparator input</li>
+<li>DA0 / P014 DAC output</li>
+<li>P408 on-board LED GPIO as represented by
+<code>BSP_IO_PORT_04_PIN_08</code></li>
+<li>One jumper wire between the DAC output and comparator input</li>
+<li>J-Link On-Board serial connection for the demo console</li>
+</ul>
+<h2 id="serial-terminal-settings">Serial terminal settings</h2>
+<p>The original example documentation specifies these terminal
+settings:</p>
+<ul>
+<li>Speed: <strong>115200 baud</strong></li>
+<li>Data: <strong>8 bit</strong></li>
+<li>Parity: <strong>none</strong></li>
+<li>Stop bits: <strong>1 bit</strong></li>
+<li>Flow control: <strong>none</strong></li>
+<li>Port: the port provided by J-Link On-Board</li>
+</ul>
+<p>For Tera Term, the original instructions also specify:</p>
+<ul>
+<li>Receive newline: <strong>CR</strong></li>
+<li>Transmit newline: <strong>CR</strong></li>
+<li><strong>Local echo</strong> enabled</li>
+</ul>
+<h2 id="demonstrated-behavior-and-performance">Demonstrated behavior and
+performance</h2>
+<h3 id="demonstrated-behavior">Demonstrated behavior</h3>
+<p>The supplied reference demonstrates that:</p>
+<ul>
+<li>DAC0 can be initialized and updated through the SBB wrapper.</li>
+<li>The configured ACMPHS instance can be opened, queried for
+stabilization information, and enabled.</li>
+<li>The DAC-generated analog signal can be compared against the
+configured 1.18 V internal reference.</li>
+<li>The comparator HIGH/LOW result can be obtained and displayed.</li>
+<li>The FPB-RA8E1 on-board LED can reflect the comparator state.</li>
+<li>Comparator callbacks can trigger a later status refresh through the
+SBB’s internal flag.</li>
+</ul>
+<h3 id="performance-data">Performance data</h3>
+<p>The supplied documentation and source do <strong>not</strong> provide
+measured latency, interrupt response time, CPU load, memory footprint,
+accuracy, throughput, or other benchmark results. The only explicit
+timing behavior is that the application waits for the minimum
+stabilization interval returned by the ACMPHS driver before refreshing
+comparator status.</p>
+<p>Consequently, this example should be treated as a functional
+reference, not as a performance benchmark.</p>
+<h2 id="file-ownership-and-modification-guidance">File ownership and
+modification guidance</h2>
+<p>The supplied files naturally separate into reusable SBB code and
+demo/reference application code:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>File</th>
+<th>Role</th>
+<th>Modification guidance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>acmphs_ep.c</code></td>
+<td>Reusable SBB implementation</td>
+<td>Modify only when intentionally changing or extending the reusable
+ACMPHS/DAC/LED abstraction.</td>
+</tr>
+<tr>
+<td><code>acmphs_ep.h</code></td>
+<td>Reusable SBB public interface and compile-time mappings</td>
+<td>Modify when the reusable interface or board/peripheral mapping needs
+to change. Keep application-only behavior out of this interface.</td>
+</tr>
+<tr>
+<td><code>acmphs_example_app.c</code></td>
+<td>Demo/reference application</td>
+<td>Safe place to customize the demonstration workflow, console
+interaction, prompts, input policy, and application-specific
+sequencing.</td>
+</tr>
+<tr>
+<td><code>acmphs_example_app.h</code></td>
+<td>Demo/reference application interface and banner text</td>
+<td>Demo-oriented. Customize when changing the reference application’s
+entry point, displayed information, or example metadata.</td>
+</tr>
+<tr>
+<td><code>readme.txt</code></td>
+<td>Original example documentation</td>
+<td>Source documentation used to derive this SBB guide. It is not
+executable code.</td>
+</tr>
+</tbody>
+</table>
+<p>The supplied files reference FSP-generated objects from
+<code>hal_data.h</code>, but the provided material does not enumerate
+the generated configuration files themselves. Files generated by FSP
+configuration tools should be treated separately from the
+hand-maintained SBB and demo files; do not classify a particular
+unprovided file as generated unless that is established by the project
+that contains it.</p>
+<h2 id="adopting-a-newer-sbb-release-after-making-local-changes">Adopting a
+newer SBB release after making local changes</h2>
+<p>If <code>acmphs_ep.c</code> or <code>acmphs_ep.h</code> are modified
+locally, those changes become a local fork of the reusable SBB
+implementation. A later SBB update may modify the same functions,
+macros, or interfaces, so the local changes may need to be reconciled
+during an upgrade.</p>
+<p>To reduce upgrade friction:</p>
+<ul>
+<li>Prefer keeping product-specific behavior in the
+application/integration layer rather than changing the SBB core when the
+core API already supports the required behavior.</li>
+<li>Keep board/application policy such as prompts, input ranges used
+only by a demo, and presentation logic out of reusable code where
+possible.</li>
+<li>Record intentional changes made to <code>acmphs_ep.c</code> and
+<code>acmphs_ep.h</code> so they can be reviewed against a newer SBB
+version.</li>
+<li>When adopting a newer release, compare the new SBB core against the
+locally modified version and reapply only the customizations that are
+still required.</li>
+<li>Revalidate comparator configuration, DAC behavior, physical signal
+routing, timing, callback operation, and LED behavior after
+integration.</li>
+</ul>
+<p>The supplied files do not define an automated migration or
+compatibility mechanism, so source-level compatibility with a future SBB
+release should not be assumed.</p>
+<h2 id="quick-start-reading-order">Quick-start reading order</h2>
+<p>For a customer evaluating this SBB, the recommended code-reading
+order is:</p>
+<ol type="1">
+<li><code>acmphs_ep.h</code> to understand the public SBB functions,
+constants, and FSP mappings.</li>
+<li><code>acmphs_ep.c</code> to see how the SBB wraps DAC0, ACMPHS,
+callback/status handling, LED output, and cleanup.</li>
+<li><code>acmphs_example_app.c</code> to see one complete integration
+sequence on FPB-RA8E1.</li>
+<li><code>acmphs_example_app.h</code> to understand the demo entry point
+and displayed example information.</li>
+</ol>
+<p>This ordering keeps the reusable SBB interface separate from the
+reference application’s console-driven demonstration behavior.</p>
+</body>
+</html>
